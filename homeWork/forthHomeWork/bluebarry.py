@@ -21,5 +21,5 @@ print(my_list)
 count_list = []
 for item in range(size):
     count = sum(my_list[item:item + 3])
-    count_list.append(coun
+    count_list.append(count)
 print(max(count_list))
