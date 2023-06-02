@@ -16,32 +16,26 @@
 # Будем считать, что на вход подается только одно слово,
 # которое содержит либо только английские, либо только русские буквы.
 
-points_eng = [{"A, E, I, O, U, L, N, S, T, R": 1},
-              {"D, G": 2},
-              {"B, C, M, P": 3},
-              {"F, H, V, W, Y": 4},
-              {"K": 5},
-              {"J, X": 8},
-              {"Q, Z": 10}]
-points_rus = [{"А, В, Е, И, Н, О, Р, С, Т": 1},
-              {"Д, К, Л, М, П, У": 2},
-              {"Б, Г, Ё, Ь, Я": 3},
-              {"Й, Ы": 4},
-              {"Ж, З, Х, Ц, Ч": 5},
-              {"Ш, Э, Ю": 8},
-              {"Ф, Щ, Ъ": 10}]
+points = [{"AEIOULNSTRАВЕИНОРСТ": 1},
+          {"DGДКЛМПУ": 2},
+          {"BCMPБГЁЬЯ": 3},
+          {"FHVWYЙЫ": 4},
+          {"KЖЗХЦЧ": 5},
+          {"JXШЭЮ": 8},
+          {"QZФЩЪ": 10}]
 
+points_x = {"AEIOULNSTRАВЕИНОРСТ": 1,
+            "DGДКЛМПУ": 2,
+            "BCMPБГЁЬЯ": 3,
+            "FHVWYЙЫ": 4,
+            "KЖЗХЦЧ": 5,
+            "JXШЭЮ": 8,
+            "QZФЩЪ": 10}
 word = input("Введите слово: ").upper()
 summ = 0
-if word.isascii():
-    for char in word:
-        for item in points_eng:
-            if char in list(item.keys())[0]:
-                summ += int(list(item.values())[0])
-else:
-    for char in word:
-        for item in points_rus:
-            if char in list(item.keys())[0]:
-                summ += int(list(item.values())[0])
+for char in word:
+    for item in points:
+        if char in list(item.keys())[0]:
+            summ += int(list(item.values())[0])
 
-print(summ)
+print(f"слово {word.lower().capitalize()} весит - {summ}")
