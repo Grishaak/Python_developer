@@ -1,5 +1,5 @@
-n = 1
-x = 5
+n = 1000
+x = 100
 
 
 def summary(num, num_x):
