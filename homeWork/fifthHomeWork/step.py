@@ -3,15 +3,14 @@
 # помощью рекурсии
 
 def pow_sum(a, b):
-    if b <= 1:
-        if b == 0:
+    if b < 1:
+        if not b:
             return 1
         return a
     a = a * pow_sum(a, b - 1)
     return a
 
-
 number = 2
-number_pow = 0
+number_pow = 4
 x = pow_sum(number, number_pow)
 print(x)
