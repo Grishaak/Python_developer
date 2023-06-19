@@ -3,21 +3,23 @@ import random
 
 # my_list = list(map(lambda x: not x % 3, my_list))
 # print(my_list)
+#
+# character(objects):
+#     objects = list(map(lambda x: x > 3, objects))
+#     if False in objects:
+#         return "not Same"
+#     return "Same"
 
-def character(objects):
-    objects = list(map(lambda x: x % 2, objects))
+
+def same_by(character, objects):
+    objects = list(map(character, objects))
     print(objects)
     if False in objects:
-        return 0
-    return 1
+        return False
+    return True
 
 
-def same_by(characterist, objects):
-    if characterist(objects):
-        return 0
-
-
-my_list = [random.randint(1, 11) for i in range(5)]
+my_list = [random.randint(2, 10) for i in range(5)]
 print(my_list)
 
-same_by(character(my_list), my_list)
+print(same_by(lambda x: x % 2 == 0, my_list))

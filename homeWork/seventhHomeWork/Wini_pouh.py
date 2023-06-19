@@ -9,9 +9,11 @@
 
 def rhythm(cramb: str) -> str:
     my_list = [len(list(filter(lambda x: x in "ыйуеоаэюияё", i))) for i in cramb.lower().split()]
+    if not len(my_list):
+        return "Парам-пам"
     return "Парам-пам-пам" if my_list.count(my_list[0]) == len(my_list) else "Парам-пам"
 
 
-crambo = "пара-ра-рам рам-пам-папам па-раы-па-дам".lower().replace("-", "")
+crambo = "Парам-пам-пам пам-пам-папа".lower()
 
 print(rhythm(crambo))

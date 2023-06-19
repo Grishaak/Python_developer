@@ -18,15 +18,14 @@
 # планета ровно одна
 
 import math
+import random
 
-orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
+orbits = [(random.randint(1, 10), random.randint(1, 10)) for i in range(random.randint(5, 10))]
+print(orbits)
 
 
 def find_farthest_orbit(list_of_orbits):
     list_of_orbits = list(filter(lambda v: v[0] != v[1], list_of_orbits))
-    # print(list_of_orbits)
-    # ellipse = list(map(lambda i: round(math.pi * i[0] * i[1], 1), list_of_orbits))
-    # print(ellipse)
     summ = ellipse = max_eleps = 0
     for a, b in list_of_orbits:
         summ += a * b * math.pi
