@@ -7,11 +7,18 @@ from phrases import game_over as gm, input_error
 class Ring(object):
     """Виртуальный ринг"""
 
+# Тут реализуется поведение бойцов на ринге
+# В init можно было засунуть по другому бойцов, там внизу показано как я сделал это
+# через создание ринга
+
     ring = []
 
     def __init__(self):
         self.fight_1 = Brawler.brawler_list[0]
         self.fight_2 = Brawler.brawler_list[1]
+
+
+# Поведение нашего бойца на ринге
 
     def action_player(self, choice):
         # flag = self.check_for_win(self.fight_1, self.fight_2)
@@ -39,6 +46,8 @@ class Ring(object):
                     print(f"{self.fight_2.name} изворачивается и наносит контр удар!\n")
                     self.fight_2.super_blow(self.fight_1)
             flag = False
+
+# Поведение бота против нас
 
     def action_enemy(self):
         # flag = self.check_for_win(self.fight_1, self.fight_2)
@@ -69,6 +78,10 @@ class Ring(object):
                 else:
                     self.fight_2.super_blow(self.fight_1)
             flag = False
+
+
+# Создание как-раз таки самого ринга
+
     def making_ring(self):
         for _, brawler in enumerate(Brawler.brawler_list, 1):
             print(f"{_} - {brawler.name}")
@@ -81,6 +94,8 @@ class Ring(object):
         self.ring = [self.fight_1, self.fight_2]
         return self.fight_1, self.fight_2
 
+
+# Проверка на победу
     def check_for_win(self, player, enemy):
         if (player.health < 1) and enemy.health > player.health:
             self.win(enemy, player)

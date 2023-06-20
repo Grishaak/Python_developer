@@ -1,10 +1,6 @@
 import random
 
-
-# from phrases import main_menu
-# from ring import Ring
-
-
+# Тут реализуется атаки и поведение бойцов.
 class Brawler(object):
     """Виртуальный боец"""
     __TURN__ = 2
@@ -19,6 +15,8 @@ class Brawler(object):
         return print(f"Меня зовут {self.name}"
                      f" сейчас у меня {self.health} hp"
                      f" мое количество выносливости {self.__TURN__}.")
+
+#  Удары рукой ногой и захват
 
     def punch(self, enemy):
         if self.__TURN__ > 0:
